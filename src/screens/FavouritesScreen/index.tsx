@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Heart } from 'lucide-react-native';
 import { EventCard } from '../../shared/components/organisms/EventCard';
 import { useFavouritesScreen } from './useFavouritesScreen';
 import { styles } from './styles';
@@ -25,7 +25,7 @@ export const FavouritesScreen = () => {
 
   const renderEmptyState = () => (
     <View style={styles.emptyContainer}>
-      <Icon name="favorite-border" size={80} color="#D1D5DB" />
+      <Heart size={80} color="#D1D5DB" />
       <Text style={styles.emptyText}>No favorites yet</Text>
       <Text style={styles.emptySubText}>
         Start adding events to your favorites to see them here

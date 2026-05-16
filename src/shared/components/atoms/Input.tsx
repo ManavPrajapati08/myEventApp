@@ -8,7 +8,7 @@ import {
   TextInputProps,
 } from 'react-native';
 import { colors } from '../../../constants/colors';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Eye, EyeOff } from 'lucide-react-native';
 
 interface InputProps extends TextInputProps {
   label: string;
@@ -33,11 +33,11 @@ export const Input = ({ label, isPassword, ...props }: InputProps) => {
             onPress={() => setIsSecure(!isSecure)}
             style={styles.icon}
           >
-            <Icon
-              name={isSecure ? 'eye-off-outline' : 'eye-outline'}
-              size={20}
-              color={colors.textSecondary}
-            />
+            {isSecure ? (
+              <EyeOff size={20} color={colors.textSecondary} />
+            ) : (
+              <Eye size={20} color={colors.textSecondary} />
+            )}
           </TouchableOpacity>
         )}
       </View>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { ArrowRight, Share2, Heart } from 'lucide-react-native';
 import { Event } from '../../../types';
 import { Tag } from '../atoms/Tag';
 import { styles } from './EventCard.styles';
@@ -29,7 +29,7 @@ export const EventCard = ({ event, onFavoritePress }: EventCardProps) => {
       <Text style={styles.title} numberOfLines={1}>
         {event.event_name}
       </Text>
-      <Icon name="arrow-forward" size={18} color="#666" />
+      <ArrowRight size={18} color="#666" />
     </View>
   );
 
@@ -54,16 +54,16 @@ export const EventCard = ({ event, onFavoritePress }: EventCardProps) => {
   const renderActions = () => (
     <View style={styles.actionsContainer}>
       <TouchableOpacity style={styles.iconButton}>
-        <Icon name="ios-share" size={20} color="#666" />
+        <Share2 size={20} color="#666" />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconButton}
         onPress={() => onFavoritePress(event.event_date_id)}
       >
-        <Icon
-          name={event.isFavorite === 1 ? 'favorite' : 'favorite-border'}
+        <Heart
           size={20}
           color={event.isFavorite === 1 ? '#10B981' : '#666'}
+          fill={event.isFavorite === 1 ? '#10B981' : 'none'}
         />
       </TouchableOpacity>
     </View>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Search, Calendar, Heart, User } from 'lucide-react-native';
 import { EventsScreen } from '../screens/EventsScreen/index';
 import { SearchScreen } from '../screens/SearchScreen';
 import { FavouritesScreen } from '../screens/FavouritesScreen/index';
@@ -14,26 +14,20 @@ const getTabBarIcon = (
   color: string,
   size: number,
 ) => {
-  let iconName = '';
-
   switch (routeName) {
     case 'Search':
-      iconName = 'search';
-      break;
+      return <Search color={color} size={size} />;
     case 'Events':
-      iconName = 'event';
-      break;
+      return <Calendar color={color} size={size} />;
     case 'Favourites':
-      iconName = focused ? 'favorite' : 'favorite-border';
-      break;
+      return (
+        <Heart color={color} size={size} fill={focused ? color : 'none'} />
+      );
     case 'Profile':
-      iconName = focused ? 'person' : 'person-outline';
-      break;
+      return <User color={color} size={size} fill={focused ? color : 'none'} />;
     default:
-      iconName = 'help';
+      return <Search color={color} size={size} />;
   }
-
-  return <Icon name={iconName} size={size} color={color} />;
 };
 
 export const MainTabNavigator = () => {

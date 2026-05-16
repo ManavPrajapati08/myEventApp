@@ -1,22 +1,28 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Circle, LucideIcon } from 'lucide-react-native';
 import { colors } from '../../../constants/colors';
 
 interface SocialLoginButtonProps {
-  iconName: string;
+  iconType: 'facebook' | 'twitter' | 'google';
   onPress: () => void;
   color?: string;
 }
 
+const getIcon = (_iconType: string): LucideIcon => {
+  return Circle;
+};
+
 export const SocialLoginButton = ({
-  iconName,
+  iconType,
   onPress,
   color = colors.text,
 }: SocialLoginButtonProps) => {
+  const IconComponent = getIcon(iconType);
+
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Icon name={iconName} size={24} color={color} />
+      <IconComponent size={24} color={color} />
     </TouchableOpacity>
   );
 };

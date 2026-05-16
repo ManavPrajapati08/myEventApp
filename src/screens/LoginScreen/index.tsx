@@ -93,10 +93,14 @@ export const LoginScreen = ({ onLoginSuccess }: LoginScreenProps) => {
 
   const renderSocialButtons = () => (
     <View style={styles.socialButtonsContainer}>
-      <SocialLoginButton iconName="google" color="#DB4437" onPress={() => {}} />
-      <SocialLoginButton iconName="apple" color="#000000" onPress={() => {}} />
+      <SocialLoginButton iconType="google" color="#DB4437" onPress={() => {}} />
       <SocialLoginButton
-        iconName="facebook"
+        iconType="twitter"
+        color="#1DA1F2"
+        onPress={() => {}}
+      />
+      <SocialLoginButton
+        iconType="facebook"
         color="#4267B2"
         onPress={() => {}}
       />
