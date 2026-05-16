@@ -59,7 +59,7 @@ export const EventCard = ({ event, onFavoritePress }: EventCardProps) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconButton}
-        onPress={() => onFavoritePress(event.event_id)}
+        onPress={() => onFavoritePress(event.event_date_id)}
       >
         <Icon
           name={event.isFavorite === 1 ? 'favorite' : 'favorite-border'}
