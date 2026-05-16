@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Button } from '../../shared/components/atoms/Button';
 import { SocialLoginButton } from '../../shared/components/molecules/SocialLoginButton';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 import { Input } from '../../shared/components/atoms/Input';
 import { useLoginScreen } from './useLoginScreen';
 import { styles } from './styles';
@@ -114,27 +114,22 @@ export const LoginScreen = ({ onLoginSuccess }: LoginScreenProps) => {
   );
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
-      <View style={styles.container}>
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          bounces={false}
-        >
-          {renderHeader()}
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContent} bounces={false}>
+        {renderHeader()}
 
-          <View style={styles.bottomSection}>
-            {renderEmailInput()}
-            {renderPasswordInput()}
-            {renderForgotPassword()}
-            {renderSignInButton()}
-            {renderSignUpLink()}
-            {renderDivider()}
-            {renderSocialButtons()}
-          </View>
-        </ScrollView>
+        <View style={styles.bottomSection}>
+          {renderEmailInput()}
+          {renderPasswordInput()}
+          {renderForgotPassword()}
+          {renderSignInButton()}
+          {renderSignUpLink()}
+          {renderDivider()}
+          {renderSocialButtons()}
+        </View>
+      </ScrollView>
 
-        {renderGuestButton()}
-      </View>
-    </SafeAreaView>
+      {renderGuestButton()}
+    </View>
   );
 };

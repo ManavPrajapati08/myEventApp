@@ -2,10 +2,6 @@ import { StyleSheet } from 'react-native';
 import { colors } from '../../constants/colors';
 
 export const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: '#D1D1D1',
-  },
   container: {
     flex: 1,
     backgroundColor: colors.white,
@@ -14,10 +10,10 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
   },
   topSection: {
-    height: 350,
+    height: 400,
     backgroundColor: '#D1D1D1',
     alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: 80,
   },
   overlay: {
     position: 'absolute',
