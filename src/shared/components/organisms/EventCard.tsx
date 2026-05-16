@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { ArrowRight, Share2, Heart } from 'lucide-react-native';
+import { ArrowRight, Upload, Heart } from 'lucide-react-native';
 import { Event } from '../../../types';
 import { Tag } from '../atoms/Tag';
 import { styles } from './EventCard.styles';
@@ -54,7 +54,7 @@ export const EventCard = ({ event, onFavoritePress }: EventCardProps) => {
   const renderActions = () => (
     <View style={styles.actionsContainer}>
       <TouchableOpacity style={styles.iconButton}>
-        <Share2 size={20} color="#666" />
+        <Upload size={20} color="#666" />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconButton}
