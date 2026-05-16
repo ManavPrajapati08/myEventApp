@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { colors } from '../../../constants/colors';
 
 interface SocialLoginButtonProps {
@@ -9,7 +9,11 @@ interface SocialLoginButtonProps {
   color?: string;
 }
 
-export const SocialLoginButton = ({ iconName, onPress, color = colors.text }: SocialLoginButtonProps) => {
+export const SocialLoginButton = ({
+  iconName,
+  onPress,
+  color = colors.text,
+}: SocialLoginButtonProps) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <Icon name={iconName} size={24} color={color} />
@@ -28,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.white,
     marginHorizontal: 8,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 1,
