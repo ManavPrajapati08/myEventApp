@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, StyleSheet, TouchableOpacity, TextInputProps } from 'react-native';
+import {
+  View,
+  TextInput,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TextInputProps,
+} from 'react-native';
 import { colors } from '../../../constants/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -22,8 +29,15 @@ export const Input = ({ label, isPassword, ...props }: InputProps) => {
           {...props}
         />
         {isPassword && (
-          <TouchableOpacity onPress={() => setIsSecure(!isSecure)} style={styles.icon}>
-            <Icon name={isSecure ? "eye-off-outline" : "eye-outline"} size={20} color={colors.textSecondary} />
+          <TouchableOpacity
+            onPress={() => setIsSecure(!isSecure)}
+            style={styles.icon}
+          >
+            <Icon
+              name={isSecure ? 'eye-off-outline' : 'eye-outline'}
+              size={20}
+              color={colors.textSecondary}
+            />
           </TouchableOpacity>
         )}
       </View>

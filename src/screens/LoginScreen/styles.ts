@@ -14,23 +14,25 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
   },
   topSection: {
-    height: 300,
+    height: 350,
     backgroundColor: '#D1D1D1',
     alignItems: 'center',
     paddingTop: 50,
   },
-  logoText: {
-    fontSize: 48,
-    fontWeight: '300',
-    color: colors.text,
-    letterSpacing: 2,
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  imagePlaceholder: {
-    marginTop: 60,
-    width: 100,
-    height: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
+  logoText: {
+    fontSize: 64,
+    fontWeight: '300',
+    color: colors.white,
+    letterSpacing: 2,
+    zIndex: 1,
   },
   bottomSection: {
     flex: 1,
@@ -57,7 +59,7 @@ export const styles = StyleSheet.create({
   },
   signUpContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     marginBottom: 40,
   },
   notMemberText: {

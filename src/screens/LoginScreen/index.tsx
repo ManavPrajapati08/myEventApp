@@ -1,13 +1,17 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+} from 'react-native';
 import { Button } from '../../shared/components/atoms/Button';
 import { SocialLoginButton } from '../../shared/components/molecules/SocialLoginButton';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Input } from '../../shared/components/atoms/Input';
 import { useLoginScreen } from './useLoginScreen';
 import { styles } from './styles';
-import { colors } from '../../constants/colors';
 
 interface LoginScreenProps {
   onLoginSuccess: () => void;
@@ -18,12 +22,14 @@ export const LoginScreen = ({ onLoginSuccess }: LoginScreenProps) => {
     useLoginScreen(onLoginSuccess);
 
   const renderHeader = () => (
-    <View style={styles.topSection}>
+    <ImageBackground
+      source={require('../../assets/images/hero.jpg')}
+      style={styles.topSection}
+      resizeMode="cover"
+    >
+      <View style={styles.overlay} />
       <Text style={styles.logoText}>Pliē</Text>
-      <View style={styles.imagePlaceholder}>
-        <Icon name="image-outline" size={60} color={colors.text} />
-      </View>
-    </View>
+    </ImageBackground>
   );
 
   const renderEmailInput = () => (
