@@ -39,6 +39,7 @@ const getTabBarIcon = (
 export const MainTabNavigator = () => {
   return (
     <Tab.Navigator
+      initialRouteName="Events"
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarActiveTintColor: '#10B981',

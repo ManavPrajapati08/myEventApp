@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/slices/authSlice';
+import { RootState } from '../../redux/store';
 
 interface FormData {
   email: string;
@@ -20,7 +21,9 @@ export const useLoginScreen = (onLoginSuccess: () => void) => {
   });
 
   const dispatch = useDispatch();
-  const { isLoading, error, isAuthenticated } = useSelector((state: any) => state.auth);
+  const { isLoading, error, isAuthenticated } = useSelector(
+    (state: RootState) => state.auth,
+  );
 
   useEffect(() => {
     if (isAuthenticated) {

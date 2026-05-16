@@ -46,9 +46,8 @@ export const EventCard = ({ event, onFavoritePress }: EventCardProps) => {
 
   const renderTags = () => (
     <View style={styles.tagsContainer}>
-      {event.danceStyles?.slice(0, 2).map((style: any, index: number) => (
-        <Tag key={index} label={style.ds_name} />
-      ))}
+      {event.danceStyles?.[0] && <Tag label={event.danceStyles[0].ds_name} />}
+      {event.danceStyles?.[1] && <Tag label={event.danceStyles[1].ds_name} />}
     </View>
   );
 

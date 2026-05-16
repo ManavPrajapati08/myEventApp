@@ -4,7 +4,7 @@ export interface User {
   email: string;
 }
 
-interface DanceStyle {
+export interface DanceStyle {
   ds_id: number;
   ds_name: string;
   created_at: string;

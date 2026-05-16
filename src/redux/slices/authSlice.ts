@@ -23,11 +23,22 @@ const initialState: AuthState = {
   error: null,
 };
 
+interface LoginResponse {
+  data: {
+    user: {
+      usr_id: number;
+      usr_fname: string;
+      usr_email: string;
+    };
+    token: string;
+  };
+}
+
 export const loginUser = createAsyncThunk(
   'auth/login',
   async (data: LoginData, { rejectWithValue }) => {
     try {
-      const response: any = await httpService.post('/login', {
+      const response = await httpService.post<LoginResponse>('/login', {
         email: data.email,
         password: data.password,
       });

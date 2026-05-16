@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEvents, toggleFavorite } from '../../redux/slices/eventsSlice';
+import { RootState } from '../../redux/store';
 
 export const useEventsScreen = () => {
   const dispatch = useDispatch();
   const { events, isLoading, error } = useSelector(
-    (state: any) => state.events,
+    (state: RootState) => state.events,
   );
-  const { user, token } = useSelector((state: any) => state.auth);
+  const { user, token } = useSelector((state: RootState) => state.auth);
 
   useEffect(() => {
     if (token) {
