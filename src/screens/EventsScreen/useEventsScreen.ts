@@ -1,23 +1,20 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { fetchEvents, toggleFavorite } from '../../redux/slices/eventsSlice';
-import { RootState } from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 export const useEventsScreen = () => {
-  const dispatch = useDispatch();
-  const { events, isLoading, error } = useSelector(
-    (state: RootState) => state.events,
-  );
-  const { user, token } = useSelector((state: RootState) => state.auth);
+  const dispatch = useAppDispatch();
+  const { events, isLoading, error } = useAppSelector(state => state.events);
+  const { user, token } = useAppSelector(state => state.auth);
 
   useEffect(() => {
     if (token) {
-      dispatch(fetchEvents(token) as any);
+      dispatch(fetchEvents(token));
     }
   }, [dispatch, token]);
 
   const handleFavoritePress = (eventId: number) => {
-    dispatch(toggleFavorite(eventId) as any);
+    dispatch(toggleFavorite(eventId));
   };
 
   return {

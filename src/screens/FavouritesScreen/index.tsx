@@ -5,15 +5,15 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { EventCard } from '../../shared/components/organisms/EventCard';
 import { useFavouritesScreen } from './useFavouritesScreen';
 import { styles } from './styles';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { toggleFavorite } from '../../redux/slices/eventsSlice';
 
 export const FavouritesScreen = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { favoriteEvents, user } = useFavouritesScreen();
 
   const handleFavoritePress = (eventId: number) => {
-    dispatch(toggleFavorite(eventId) as any);
+    dispatch(toggleFavorite(eventId));
   };
 
   const renderHeader = () => (

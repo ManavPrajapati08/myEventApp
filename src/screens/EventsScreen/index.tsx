@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { EventCard } from '../../shared/components/organisms/EventCard';
 import { useEventsScreen } from './useEventsScreen';
 import { styles } from './styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const EventsScreen = () => {
   const { events, isLoading, error, user, handleFavoritePress } =
@@ -18,7 +18,7 @@ export const EventsScreen = () => {
 
   if (isLoading && events.length === 0) {
     return (
-      <SafeAreaView style={styles.centered} edges={['top']}>
+      <SafeAreaView style={styles.centered}>
         {renderHeader()}
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#10B981" />
@@ -29,7 +29,7 @@ export const EventsScreen = () => {
 
   if (error && events.length === 0) {
     return (
-      <SafeAreaView style={styles.centered} edges={['top']}>
+      <SafeAreaView style={styles.centered}>
         {renderHeader()}
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>{error}</Text>
@@ -39,7 +39,7 @@ export const EventsScreen = () => {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top']}>
+    <SafeAreaView style={styles.safeArea}>
       {renderHeader()}
       <View style={styles.listContainer}>
         <FlatList

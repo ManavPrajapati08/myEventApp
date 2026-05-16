@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/slices/authSlice';
-import { RootState } from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 interface FormData {
   email: string;
@@ -20,9 +19,9 @@ export const useLoginScreen = (onLoginSuccess: () => void) => {
     password: '',
   });
 
-  const dispatch = useDispatch();
-  const { isLoading, error, isAuthenticated } = useSelector(
-    (state: RootState) => state.auth,
+  const dispatch = useAppDispatch();
+  const { isLoading, error, isAuthenticated } = useAppSelector(
+    state => state.auth,
   );
 
   useEffect(() => {
@@ -72,7 +71,7 @@ export const useLoginScreen = (onLoginSuccess: () => void) => {
       return;
     }
 
-    dispatch(loginUser(formData) as any);
+    dispatch(loginUser(formData));
   };
 
   return {
